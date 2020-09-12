@@ -11,7 +11,7 @@ This should be your 5 minute guide to getting the application running on your lo
 
 ### Requirement
 gfdgdfgdf
-You need to have the following installed:
+You need to have the following installed:fdsfsdfsdfsdf
 dasdasdasdasdasd
 1. JDK 1.6+
 2. MySQL (you do not need to install MySQL if running in in-memory mode. Continue reading to learn how to start the application with in memory database)
