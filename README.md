@@ -45,7 +45,7 @@ Now with the general overview out of the way, let us look at getting the applica
 There are two ways in which the application can be run for development:
 
 * With a MySQL datastore
-* With In-memory Database
+* With In-memory Databaseasdasdasdsad
 
 Running the application with a MySQL database requires MySQL to be installed and running on the machine the 
 application would be running on. The necessary database also needs to have been created. 
