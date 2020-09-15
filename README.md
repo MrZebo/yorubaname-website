@@ -90,7 +90,7 @@ First create a MySQL database, with the following details:
 In case you went ahead to install MySQL and created your database, without setting the character set as mentioned 
 above, you can still alter your database to make use of the correct character set. To do that, run the following MySQL command:
 
-```
+```adfsdfsdfds
 ALTER DATABASE 'dictionary' DEFAULT CHARACTER SET = 'utf8' COLLATE 'utf8_unicode_ci';
 ```
 
