@@ -74,7 +74,7 @@ Basically you would want to find your my.conf file and add the following piece o
 ```
 [mysqld]
 character-set-server=utf8
-collation-server=utf8_general_c
+collation-server=utf8_general_casddasdasdasdas
 ```
 
 You can consult the [Configuring the Character Set and Collation for Applications](https://dev.mysql
