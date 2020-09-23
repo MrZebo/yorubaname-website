@@ -13,7 +13,7 @@ This should be your 5 minute guide to getting the application running on your lo
 gfdgdfgdf
 You need to have the following installed:fdsfsdfsdfsdfasdasdasdasdas
 dasdasdasdasdasd
-1. JDK 1.6+
+1. JDK 1.6+321
 2. MySQL (you do not need to install MySQL if running in in-memory mode. Continue reading to learn how to start the application with in memory database)
 3. Mavenfdfdfgdfgd
 Consult this [link](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#CJAGAACB) for more information on how to install the JDK. 
