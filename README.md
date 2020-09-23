@@ -10,12 +10,12 @@ the various needed functionality. The code for the front facing website found at
 This should be your 5 minute guide to getting the application running on your local machine and contributing code.
 
 ### Requirement
-
-You need to have the following installed:
-
+gfdgdfgdf
+You need to have the following installed:fdsfsdfsdfsdfasdasdasdasdas
+dasdasdasdasdasd
 1. JDK 1.6+
 2. MySQL (you do not need to install MySQL if running in in-memory mode. Continue reading to learn how to start the application with in memory database)
-3. Maven
+3. Mavenfdfdfgdfgdfgdf
 
 Consult this [link](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#CJAGAACB) for more information on how to install the JDK. 
 
@@ -45,7 +45,7 @@ Now with the general overview out of the way, let us look at getting the applica
 There are two ways in which the application can be run for development:
 
 * With a MySQL datastore
-* With In-memory Database
+* With In-memory Databaseasdasdasdsad
 
 Running the application with a MySQL database requires MySQL to be installed and running on the machine the 
 application would be running on. The necessary database also needs to have been created. 
@@ -74,7 +74,7 @@ Basically you would want to find your my.conf file and add the following piece o
 ```
 [mysqld]
 character-set-server=utf8
-collation-server=utf8_general_c
+collation-server=utf8_general_casddasdasdasdas
 ```
 
 You can consult the [Configuring the Character Set and Collation for Applications](https://dev.mysql
@@ -90,7 +90,7 @@ First create a MySQL database, with the following details:
 In case you went ahead to install MySQL and created your database, without setting the character set as mentioned 
 above, you can still alter your database to make use of the correct character set. To do that, run the following MySQL command:
 
-```
+```adfsdfsdfds
 ALTER DATABASE 'dictionary' DEFAULT CHARACTER SET = 'utf8' COLLATE 'utf8_unicode_ci';
 ```
 
