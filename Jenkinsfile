@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test Build') {
             steps {
-            sh 'mvn -B -X -DskipTests  compile'
+            sh 'mvn -B -X -DskipTests  clean package'
          
             sh 'curl http://localhost:8081'
             sh 'curl -X POST localhost:8081/actuator/shutdown'
