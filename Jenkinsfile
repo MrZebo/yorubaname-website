@@ -15,7 +15,7 @@ pipeline {
             steps {
             sh 'mvn clean install'
             dir('website') {
-               sh 'mvn spring-boot:run'
+               sh 'mvn spring-boot:run -Dspring.profiles.active=inmemory'
               }
             }
         }
