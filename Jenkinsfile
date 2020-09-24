@@ -16,6 +16,8 @@ pipeline {
             sh 'mvn clean install'
             dir('website') {
                sh 'mvn spring-boot:run -Dspring.profiles.active=inmemory'
+               sh 'curl http://localhost:8081'
+               sh 'curl -X POST localhost:8081/actuator/shutdown'
               }
             }
         }
