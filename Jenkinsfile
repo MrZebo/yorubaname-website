@@ -13,8 +13,10 @@ pipeline {
         }
         stage('Test Build') {
             steps {
-            sh 'mvn -B -X -DskipTests  clean package'
-         
+            sh 'mvn -B -X -DskipTests  clean install'
+            dir('website') {
+               sh 'nohup mvn spring-boot:run -Dspring.profiles.active=inmemory &'
+              }
             sh 'curl http://localhost:8081'
             sh 'curl -X POST localhost:8081/actuator/shutdown'
             }
