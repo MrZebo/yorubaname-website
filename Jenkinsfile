@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test Build') {
             steps {
-            sh 'mvn -B -DskipTests clean install'
+            sh 'mvn -B -DskipTests clean package'
             dir('website') {
                sh 'mvn spring-boot:run -Dspring.profiles.active=inmemory'
               }
