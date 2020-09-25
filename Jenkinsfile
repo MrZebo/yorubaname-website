@@ -15,11 +15,12 @@ pipeline {
         }
         stage('test') {
           steps{
+            script{
             sh 'sleep 60'
-            sh 'http_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8081)'
             def status = sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
             sh 'echo status'
           }
+         }
         }
         stage('deploy') {
             // ...
