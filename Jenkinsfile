@@ -13,9 +13,8 @@ pipeline {
             sh 'sleep 60'
             sh label: '', script: '''curl -s -o /dev/null -w "%{http_code}" http://localhost:8081
             if(http_code == 200)
-              echo 'WOOORK!!!!11111\
+               echo \'WOOORK!!!!11111\'}'''
             then
-            
             fi
             
             }
