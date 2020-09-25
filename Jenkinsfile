@@ -18,9 +18,16 @@ pipeline {
             script{
             sh 'sleep 60'
             def response = sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
-            sh 'echo ${response}'
+            echo "${response}"
           }
          }
+          post {
+                success {
+                 echo "Success"
+                }
+                failure {
+                 echo "Failure"
+                }
         }
         stage('deploy') {
           steps{
