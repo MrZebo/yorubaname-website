@@ -12,14 +12,8 @@ pipeline {
               }
             sh 'sleep 60'
             sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
-            if(http_code == 200)
-            {
-              echo 'WOOORK!!!!11111'
-            }
-            esle
-            {
-              echo 'FAIL :('
-            }
+            script { if(http_code == 200){ echo 'WOOORK!!!!11111'} }
+            
             }
         }
     }
