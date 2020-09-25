@@ -17,8 +17,8 @@ pipeline {
           steps{
             script{
             sh 'sleep 60'
-            def status = sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
-            sh 'echo status'
+            def response = sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
+            sh 'echo ${response}'
           }
          }
         }
