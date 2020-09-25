@@ -18,8 +18,7 @@ pipeline {
                sh 'nohup mvn spring-boot:run -Dspring.profiles.active=inmemory &'
               }
             sh 'sleep 60'
-            sh 'curl http://localhost:8081'
-            sh 'curl -X POST localhost:8081/actuator/shutdown'
+            sh 'curl -I http://localhost:8081'
             }
         }
     }
