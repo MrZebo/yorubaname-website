@@ -13,7 +13,10 @@ pipeline {
             sh 'sleep 60'
             sh 'http_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8081)'
             sh 'echo $http_code'
-            if($http_code == 200) echo 'ITS WOOOORK!!!!1111'
+            script {
+              if($http_code == 200) echo 'ITS WOOOORK!!!!1111'
+              else echo 'Not work :('
+                   }
             }
         }
     }
