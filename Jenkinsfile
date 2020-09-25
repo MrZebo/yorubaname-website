@@ -17,13 +17,13 @@ pipeline {
           steps{
             script{
             sh 'sleep 60'
-            def response = sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
-            echo "${response}"
+            sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
           }
          }
           post {
                 success {
                  echo "Success"
+                 archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                 }
                 failure {
                  echo "Failure"
