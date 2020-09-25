@@ -11,8 +11,8 @@ pipeline {
                sh 'nohup mvn spring-boot:run -Dspring.profiles.active=inmemory &'
               }
             sh 'sleep 60'
-            sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
-            script { if(http_code == 200){ echo 'WOOORK!!!!11111'} }
+            sh label: '', script: '''curl -s -o /dev/null -w "%{http_code}" http://localhost:8081
+            if(http_code == 200){ echo \'WOOORK!!!!11111\'}'''
             
             }
         }
