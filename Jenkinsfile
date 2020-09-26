@@ -24,6 +24,10 @@ pipeline {
                 success {
                  echo "Success"
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                 withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_USER_PASSWORD',       usernameVariable: 'GIT_USER_NAME')]) {
+                   sh("git tag -a some_tag -m 'Jenkins'")
+                   sh('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_REPO} --tags')
+                  } 
                 }
                 failure {
                  echo "Failure"
