@@ -31,6 +31,8 @@ pipeline {
                  sh('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
                  
                  dir('website/target') {
+                   sh 'ls -la'
+                   sh 'pwd'
                    sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip .'
                  }
                 }
