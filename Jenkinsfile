@@ -29,7 +29,10 @@ pipeline {
                  sh 'git config --global user.name "MrZebo"'
                  sh("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
                  sh('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
-                 sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip **/target'
+                 
+                 dir('website/target') {
+                   sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip .'
+                 }
                 }
                 failure {
                  echo "Failure"
