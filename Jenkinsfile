@@ -33,7 +33,7 @@ pipeline {
                  dir('website/target') {
                    sh 'ls -la'
                    sh 'pwd'
-                   sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip .'
+                   sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip **/target/*.jar'
                  }
                 }
                 failure {
