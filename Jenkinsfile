@@ -27,8 +27,8 @@ pipeline {
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
-                 sh("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
-                 git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags
+                 sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
+                 sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
                  sh 'pwd'
                  sh 'ls -la'
                  //git add https://borisdevops.tk/job/Pull%20Request%20Artifact%20Builder/lastSuccessfulBuild/artifact/*zip*/archive.zip
