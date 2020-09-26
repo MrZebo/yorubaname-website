@@ -31,7 +31,7 @@ pipeline {
                  sh('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
                  
                  dir('website/target') {
-                   sh 'cd $JENKINS_HOME/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/'
+                   sh 'cd $JENKINS_HOME/jobs/${JOB_BASE_NAME}/builds/${BUILD_NUMBER}/'
                    sh 'ls -la'
                    sh 'pwd'
                    sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip **/target/*.jar'
