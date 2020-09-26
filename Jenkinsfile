@@ -26,7 +26,7 @@ pipeline {
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
-                 sh("git tag -a some_tag -m 'Jenkins'")
+                 sh("git tag -a ${BRANCH_NAME}:${BUILD_NUMBER} -m 'Jenkins'")
                  sh('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_REPO} --tags')
                 }
                 failure {
