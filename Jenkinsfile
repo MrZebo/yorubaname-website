@@ -25,25 +25,16 @@ pipeline {
                  echo "Success"
                  sh 'mkdir jars'
                  dir('jars') {
-                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                  archiveArtifacts(artifacts: '**/*.jar', allowEmptyArchive: true)
                   sh 'ls -la'
                   sh 'pwd'
                  }
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
-                 sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
-                 sh 'pwd'
-                 sh 'ls -la'
-                 sh 'ls -la /job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/*zip*/' 
+                 sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags') 
                  //git add https://borisdevops.tk/job/Pull%20Request%20Artifact%20Builder/lastSuccessfulBuild/artifact/*zip*/archive.zip
                  //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
-
-                 dir('website/target') {
-                   sh 'cd $JENKINS_HOME/jobs/${JOB_BASE_NAME}/builds/${BUILD_NUMBER}/'
-                   sh 'ls -la'
-                   sh 'zip -r artifacts-${env.BUILD_NUMBER}.zip **/target/*.jar'
-                 }
                 }
                 failure {
                  echo "Failure"
