@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('build') {
           steps{
-            echo "My branch is: ${env.BRANCH_NAME}"
             sh 'mvn -B -DskipTests  clean install'
           }
         }
@@ -14,7 +13,7 @@ pipeline {
           steps{
             script{
             dir('website') {
-               sh 'nohup mvn spring-boot:run -Dspring.profiles.active=inmemory &'
+               sh 'nohup mvn -X spring-boot:run -Dspring.profiles.active=inmemory &'
             }
             sh 'sleep 120'
             sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'

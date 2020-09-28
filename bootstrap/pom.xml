@@ -16,13 +16,13 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>model-module</artifactId>
-            <version>0.0.${env.BUILD_NUMBER}</version>
+        <version>0.0.${env.BUILD_NUMBER}</version>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>search-api</artifactId>
-            <version>0.0.${env.BUILD_NUMBER}</version>
+        <version>0.0.${env.BUILD_NUMBER}</version>
         </dependency>
     </dependencies>
 </project>
