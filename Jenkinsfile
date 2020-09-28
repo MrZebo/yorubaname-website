@@ -24,11 +24,8 @@ pipeline {
                 success {
                  echo "Success"
                  sh 'mkdir jars'
-                 dir('jars') {
-                  archiveArtifacts(artifacts: '**/*.jar', allowEmptyArchive: true)
-                  sh 'ls -la'
-                  sh 'pwd'
-                 }
+                 archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                 zip -r artifacts.zip archive
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
