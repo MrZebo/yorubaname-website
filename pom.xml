@@ -5,7 +5,7 @@
 
     <groupId>org.yorubaname</groupId>
     <artifactId>dictionary</artifactId>
-    <version>0.0.${env.BUILD_NUMBER}</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <modules>
         <module>model</module>
