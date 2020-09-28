@@ -50,19 +50,19 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>model-module</artifactId>
-        <version>0.0.${env.BUILD_NUMBER}</version>
+            <version>0.0.${env.BUILD_NUMBER}</version>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>event-module</artifactId>
-        <version>0.0.${env.BUILD_NUMBER}</version>
+            <version>0.0.${env.BUILD_NUMBER}</version>
         </dependency>
 
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-        <version>0.0.${env.BUILD_NUMBER}</version>
+            <version>0.0.${env.BUILD_NUMBER}</version>
         </dependency>
 
         <dependency>
