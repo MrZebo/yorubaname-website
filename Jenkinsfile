@@ -7,7 +7,7 @@ pipeline {
         stage('build') {
           steps{
             echo "My branch is: ${env.BRANCH_NAME}"
-            sh 'mvn -B -DskipTests  clean install'
+            sh 'mvn install'
           }
         }
         stage('test') {
