@@ -19,7 +19,7 @@
         <module>searchapi</module>
         <module>jpasearch</module>
     </modules>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>dictionary</name>
     <description>Yoruba Name Dictionary</description>
