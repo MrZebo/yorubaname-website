@@ -23,7 +23,12 @@ pipeline {
           post {
                 success {
                  echo "Success"
-                 archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                 sh 'mkdir jars'
+                 dir('jars') {
+                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                  sh 'ls -la'
+                  sh 'pwd'
+                 }
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
