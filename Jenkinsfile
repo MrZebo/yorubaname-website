@@ -39,7 +39,7 @@ pipeline {
                  sh 'ls -la'
                  
                  sh ('git add ${env.BUILD_NUMBER}.zip')
-                 sh ('git commit -m '${env.BUILD_NUMBER}'')
+                 sh ('git commit -m 'Jar archive')
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}')
                  git status
                  //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
