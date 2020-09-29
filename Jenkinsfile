@@ -25,7 +25,7 @@ pipeline {
                  echo "Success"
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                 // sh 'zip -r artifacts.zip archive'
-                 sh 'python -c "import shutil;shutil.make_archive('archive-${env.BUILD_NUMBER}','zip',root_dir='.', base_dir='archive')"
+                 sh 'python -c "import shutil;shutil.make_archive('archive-${env.BUILD_NUMBER}','zip',root_dir='.', base_dir='archive')"'
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
