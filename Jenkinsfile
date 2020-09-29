@@ -15,7 +15,7 @@ pipeline {
             dir('website') {
                sh 'nohup mvn -X spring-boot:run -Dspring.profiles.active=inmemory &'
             }
-            sh 'sleep 60'
+            sh 'sleep 0'
             sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
             sh 'env'
           }
@@ -26,6 +26,7 @@ pipeline {
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                  //zip -r artifacts.zip archive
                  //sh label: '', script: 'python -c "import shutil;shutil.make_archive(\'artifacts-${env.BUILD_NUMBER}\',\'zip\',root_dir=\'.\', base_dir=\'archive\')"'
+                 sh 'ls -la /var/jenkins_home/'
                  zip archive: true, dir: '/var/jenkins_home/jobs/Pull_Request_Artifact_Builder/${env.BUILD_NUMBER}/archive', glob: '', zipFile: 'build-artifacts-${env.BUILD_NUMBER}.zip'
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
