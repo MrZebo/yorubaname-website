@@ -26,7 +26,7 @@ pipeline {
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                  //zip -r artifacts.zip archive
                  //sh label: '', script: 'python -c "import shutil;shutil.make_archive(\'artifacts-${env.BUILD_NUMBER}\',\'zip\',root_dir=\'.\', base_dir=\'archive\')"'
-                 sh 'ls -la ${JENKINS_HOME}'
+                 sh 'cd .. && ls -la'
                  zip archive: true, dir: '.', glob: '', zipFile: 'build-artifacts-${env.BUILD_NUMBER}.zip'
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
@@ -37,7 +37,7 @@ pipeline {
                 }
                 failure {
                  echo "Failure"
-                 sh 'ls -la ${JENKINS_HOME}'
+                 sh 'cd .. && ls -la'
                 }
         }
         }
