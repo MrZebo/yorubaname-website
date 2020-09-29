@@ -33,7 +33,8 @@ pipeline {
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
-                 sh 'wget -r -np -l 1 -A zip --auth-no-challenge --http-user=admin --http-password=vU3KBTHvD9  https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/*zip*/archive.zip' 
+                 copyArtifacts filter: '*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastSuccessful(), target: '${PWD}'
+                 //sh 'wget -r -np -l 1 -A zip --auth-no-challenge --http-user=admin --http-password=vU3KBTHvD9  https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/*zip*/archive.zip' 
                  //sh 'wget -qO- http://10.7.240.162:8080/lastSuccessfulBuild/artifact/*zip*/archive.zip'
                  //sh 'wget -qO- jenkins_url/job/job_name/lastSuccessfulBuild/${env.BUILD_NUMBER}' 
                  //git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
