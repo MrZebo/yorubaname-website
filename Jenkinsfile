@@ -38,9 +38,9 @@ pipeline {
                  zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER
                  sh 'ls -la'
                  
-                 sh label: '', script: 'git add ${env.BUILD_NUMBER}'
-                 sh label: '', script: 'git commit -m "push to git'
-                 sh label: '', script: 'git push https:///${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}.git master'
+                 //sh label: '', script: 'git add ${env.BUILD_NUMBER}'
+                 //sh label: '', script: 'git commit -m "push to git'
+                 //sh label: '', script: 'git push https:///${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}.git master'
                  //sh label: '', script: '''git add ${env.BUILD_NUMBER}.zip
                  //git commit -m "push to git"
                  //git push https:///${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}.git master'''
