@@ -30,7 +30,7 @@ pipeline {
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
                  sh 'mkdir artifacts'
                  dir('artifacts'){
-                      copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: specific('${env.BUILD_NUMBER}'), target: '.'
+                      copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
 
                  sh 'ls -la artifacts'
