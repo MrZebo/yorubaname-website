@@ -24,16 +24,11 @@ pipeline {
                 success {
                  echo "Success"
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true , onlyIfSuccessful: true)
-                 //zip -r artifacts.zip archive
-                 //sh label: '', script: 'python -c "import shutil;shutil.make_archive(\'artifacts-${env.BUILD_NUMBER}\',\'zip\',root_dir=\'.\', base_dir=\'archive\')"'
-                 //sh 'cd .. && ls -la && pwd && cd .. && ls -la && pwd && cd .. && ls -la && pwd'
-                 //https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/zip/archive.zip
-                 //zip archive: true, dir: '.', glob: '', zipFile: 'build-artifacts-${env.BUILD_NUMBER}.zip'
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
-                 copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastSuccessful(), target: '${PWD}'
+                 copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastCompleted(), target: '${PWD}'
                  //sh 'wget -r -np -l 1 -A zip --auth-no-challenge --http-user=admin --http-password=vU3KBTHvD9  https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/*zip*/archive.zip' 
                  //sh 'wget -qO- http://10.7.240.162:8080/lastSuccessfulBuild/artifact/*zip*/archive.zip'
                  //sh 'wget -qO- jenkins_url/job/job_name/lastSuccessfulBuild/${env.BUILD_NUMBER}' 
@@ -43,7 +38,6 @@ pipeline {
                 }
                 failure {
                  echo "Failure"
-                 //                sh 'cd .. && ls -la && pwd && cd .. && ls -la && pwd && cd .. && ls -la && pwd'
                 }
         }
         }
