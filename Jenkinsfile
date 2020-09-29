@@ -37,6 +37,7 @@ pipeline {
                 }
                 failure {
                  echo "Failure"
+                 sh 'ls -la /var/jenkins_home/'
                 }
         }
         }
