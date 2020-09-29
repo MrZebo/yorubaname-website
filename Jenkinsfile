@@ -15,7 +15,7 @@ pipeline {
             dir('website') {
                sh 'nohup mvn -X spring-boot:run -Dspring.profiles.active=inmemory &'
             }
-            sh 'sleep 60'
+            sh 'sleep 70'
             sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
             sh 'env'
           }
