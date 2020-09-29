@@ -26,7 +26,7 @@ pipeline {
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                  //zip -r artifacts.zip archive
                  //sh label: '', script: 'python -c "import shutil;shutil.make_archive(\'artifacts-${env.BUILD_NUMBER}\',\'zip\',root_dir=\'.\', base_dir=\'archive\')"'
-                 zip archive: true, dir: 'archive', glob: '', zipFile: 'build-artifacts-${env.BUILD_NUMBER}.zip'
+                 zip archive: true, dir: '/var/jenkins_home/jobs/Pull_Request_Artifact_Builder/${env.BUILD_NUMBER}/archive', glob: '', zipFile: 'build-artifacts-${env.BUILD_NUMBER}.zip'
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
