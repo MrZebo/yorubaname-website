@@ -26,7 +26,9 @@ pipeline {
                  archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
                  //zip -r artifacts.zip archive
                  //sh label: '', script: 'python -c "import shutil;shutil.make_archive(\'artifacts-${env.BUILD_NUMBER}\',\'zip\',root_dir=\'.\', base_dir=\'archive\')"'
-                 sh 'cd .. && ls -la && pwd && ls -la Pull_Request_Artifact_Builder@tmp'
+                 sh 'cd .. && ls -la && pwd'
+                 sh 'cd .. && ls -la && pwd'
+                 sh 'cd .. && ls -la && pwd'
                  zip archive: true, dir: '.', glob: '', zipFile: 'build-artifacts-${env.BUILD_NUMBER}.zip'
                  sh 'git config --global user.email "test@gmail.com"'
                  sh 'git config --global user.name "MrZebo"'
@@ -37,7 +39,10 @@ pipeline {
                 }
                 failure {
                  echo "Failure"
-                 sh 'cd .. && ls -la && pwd && ls -la Pull_Request_Artifact_Builder@tmp'
+                 sh 'cd .. && ls -la && pwd'
+                 sh 'cd .. && ls -la && pwd'
+                 sh 'cd .. && ls -la && pwd'
+                 sh 'cd .. && ls -la && pwd'
                 }
         }
         }
