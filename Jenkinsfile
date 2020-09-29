@@ -33,11 +33,9 @@ pipeline {
                       copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
                  //zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts
-                 zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
-                 dir('jobs'){
+                 //zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
+                 zip archive: true, dir: 'artifacts', glob: '', zipFile: 'artifacts-'${env.BUILD_NUMBER}''
                  sh 'ls -la'
-                 }
-                 sh 'ls -la artifacts'
                  
                  //git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
                  //git status
