@@ -15,7 +15,7 @@ pipeline {
             dir('website') {
                sh 'nohup mvn -X spring-boot:run -Dspring.profiles.active=inmemory &'
             }
-            sh 'sleep 0'
+            sh 'sleep 60'
             sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
             sh 'env'
           }
@@ -33,8 +33,8 @@ pipeline {
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags') 
-                 git add https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/zip/archive-${env.BUILD_NUMBER}.zip
-                 git status
+                 //git add https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/zip/archive-${env.BUILD_NUMBER}.zip
+                 //git status
                  //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
                 }
                 failure {
