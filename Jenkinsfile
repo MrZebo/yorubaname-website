@@ -34,7 +34,7 @@ pipeline {
                  }
                  //zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts
                  //zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
-                 zip archive: true, dir: 'artifacts', glob: '', overwrite: true, zipFile: env.BUILD_NUMBER}
+                 zip archive: true, dir: 'artifacts', glob: '', overwrite: true, zipFile: env.BUILD_NUMBER
                  sh 'ls -la'
                  
                  //git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
