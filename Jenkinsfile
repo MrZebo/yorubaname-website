@@ -32,11 +32,12 @@ pipeline {
                  dir('artifacts'){
                       copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
-
+                 zip -r  artifacts-${env.BUILD_NUMBER}.zip artifacts
+                 dir('jobs'){
+                 sh 'ls -la'
+                 }
                  sh 'ls -la artifacts'
-                 //sh 'wget -r -np -l 1 -A zip --auth-no-challenge --http-user=admin --http-password=vU3KBTHvD9  https://borisdevops.tk/job/Pull_Request_Artifact_Builder/lastSuccessfulBuild/artifact/*zip*/archive.zip' 
-                 //sh 'wget -qO- http://10.7.240.162:8080/lastSuccessfulBuild/artifact/*zip*/archive.zip'
-                 //sh 'wget -qO- jenkins_url/job/job_name/lastSuccessfulBuild/${env.BUILD_NUMBER}' 
+                 
                  //git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
                  //git status
                  //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
