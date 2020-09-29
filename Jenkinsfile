@@ -33,8 +33,8 @@ pipeline {
                  sh 'git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags') 
-                 sh 'wget '
-                 git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
+                 sh 'wget ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip'
+                 //git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
                  //git status
                  //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
                 }
