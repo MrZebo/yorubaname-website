@@ -35,7 +35,7 @@ pipeline {
                  //zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts
                  //sh label: '', script: 'zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts'
                  //zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
-                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER.zip
+                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER
                  sh 'ls -la'
                  
 
