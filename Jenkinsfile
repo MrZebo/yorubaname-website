@@ -33,12 +33,13 @@ pipeline {
                       copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
                  //zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts
+                 //sh label: '', script: 'zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts'
                  //zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
-                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER
+                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER.zip
                  sh 'ls -la'
                  
-                 //git add ${JOB_URL}/lastSuccessfulBuild/artifact/zip/archive.zip
-                 //git status
+                 git add ${env.BUILD_NUMBER}.zip
+                 git status
                  //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
                 }
                 failure {
