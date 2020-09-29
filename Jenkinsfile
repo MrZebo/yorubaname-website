@@ -32,7 +32,8 @@ pipeline {
                  dir('artifacts'){
                       copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
-                 zip -r  artifacts-${env.BUILD_NUMBER}.zip artifacts
+                 zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts
+                 zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
                  dir('jobs'){
                  sh 'ls -la'
                  }
