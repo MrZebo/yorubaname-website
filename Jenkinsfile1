@@ -5,7 +5,7 @@ pipeline {
           steps{
            script {
              latestTag = sh 'git describe --abbrev=0'
-             echo $latestTag
+             echo "$latestTag"
             }
            }
 
