@@ -7,7 +7,7 @@ pipeline {
         stage('Clone') {
           steps{
           
-           git url: '${env.GIT_URL}'
+           git url: 'https://github.com/MrZebo/yorubaname-website.git'
 
           }
         }
