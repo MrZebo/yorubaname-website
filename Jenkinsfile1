@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven'
+    }
+    stages {
+        stage('Clone') {
+          steps{
+          
+           git url: '${env.GIT_URL}'
+
+          }
+        }
+       
+        stage('deploy') {
+          steps{
+             TAG = sh (returnStdout: true, script: 'git fetch --tags && git tag --points-at HEAD | awk NF' ).trim()
+             if (env.BRANCH_NAME == 'master') {
+             echo "Deploying to Prod ${TAG}"
+          }
+        }
+    }
+}
+}
