@@ -32,8 +32,8 @@ pipeline {
                  dir('artifacts'){
                       copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
-                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER.zip
-                 sh 'ls -la'
+                 //zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER.zip
+                 //sh 'ls -la'
                  
                 }
                 failure {
