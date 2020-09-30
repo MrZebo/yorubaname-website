@@ -4,9 +4,8 @@ pipeline {
         stage('deploy') {
           steps{
            script {
-             latestTag = sh 'git describe --abbrev=0'
-             echo '${env}'
-             echo 'latestTag'
+             TAG = sh(returnStdout: true, script:'git describe --abbrev=0').trim()
+             echo '${TAG}'
             }
            }
 
