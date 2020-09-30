@@ -14,9 +14,11 @@ pipeline {
        
         stage('deploy') {
           steps{
+            scripts{
              TAG = sh (returnStdout: true, script: 'git fetch --tags && git tag --points-at HEAD | awk NF' ).trim()
              if (env.BRANCH_NAME == 'master') {
              echo "Deploying to Prod ${TAG}"
+          }
           }
         }
     }
