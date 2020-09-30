@@ -32,24 +32,9 @@ pipeline {
                  dir('artifacts'){
                       copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
                  }
-                 //zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts
-                 //sh label: '', script: 'zip -r artifacts-${env.BUILD_NUMBER}.zip artifacts'
-                 //zip zipFile: 'artifacts-${env.BUILD_NUMBER}.zip', dir:'artifacts'
-                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER
+                 zip archive: true, dir: 'artifacts', glob: '', overwrite: false, zipFile: env.BUILD_NUMBER.zip
                  sh 'ls -la'
                  
-                 //sh label: '', script: 'git add ${env.BUILD_NUMBER}'
-                 //sh label: '', script: 'git commit -m "push to git'
-                 //sh label: '', script: 'git push https:///${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}.git master'
-                 //sh label: '', script: '''git add ${env.BUILD_NUMBER}.zip
-                 //git commit -m "push to git"
-                 //git push https:///${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}.git master'''
-                 //sh ('git add ${env.BUILD_NUMBER}.zip')
-                 //sh ('git commit -m 'Archive')
-                 //sh label: '', script: 'git commit -m \'Jar archive #${env.BUILD_NUMBER}\''
-                 //sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_ARTIFACTORY}')
-                 //git status
-                 //git add /home/jenkins/workspace/Pull Request Artifact Builder/lastSuccessfulBuild/artifact/*zip*/archive-${env.BUILD_NUMBER}.zip
                 }
                 failure {
                  echo "Failure"
