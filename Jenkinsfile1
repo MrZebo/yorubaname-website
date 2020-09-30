@@ -7,8 +7,9 @@ pipeline {
        
         stage('deploy') {
           steps{
-            sh label: '', script: '''TAG = sh (returnStdout: true, script: \'git fetch --tags && git tag --points-at HEAD | awk NF\').trim()'''
-            sh label: '', script: '''    if (TAG) { stage(\'Deploy Prod\') {  echo "Deploying to Prod ${TAG}"}}'''
+          
+            sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
+
     }
 }
 }
