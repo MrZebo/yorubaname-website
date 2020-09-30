@@ -5,7 +5,7 @@ pipeline {
           steps{
            script {
              TAG = sh(returnStdout: true, script:'git describe --abbrev=0').trim()
-             echo '${TAG}'
+             echo "${TAG}"
             }
            }
 
