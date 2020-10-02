@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'master' }
     tools {
         maven 'maven'
     }
@@ -17,7 +17,7 @@ pipeline {
             }
             sh 'sleep 70'
             sh 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8081'
-            sh 'env'
+            //sh 'env'
           }
          }
           post {
@@ -27,8 +27,10 @@ pipeline {
                  sh 'git config --global user.email "test@gmail.com" && git config --global user.name "MrZebo"'
                  sh ("git tag -a master-${env.BUILD_NUMBER} -m 'Jenkins'")
                  sh ('git push https://${GIT_USER_NAME}:${GIT_USER_PASSWORD}@${GIT_PROJECT_REPO} --tags')
-                 dir('artifacts'){
-                      copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true, projectName: 'Pull_Request_Artifact_Builder', selector: lastWithArtifacts(), target: '.'
+
+//                 dir('artifacts'){
+//                      copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true,
+// projectName: 'Pull_Request_Artifact_Builder',selector: lastWithArtifacts(), target: '.'
                  }
                 }
                 failure {
