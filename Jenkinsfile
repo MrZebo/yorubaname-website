@@ -32,7 +32,7 @@ pipeline {
 //                      copyArtifacts filter: '**/target/*.jar', fingerprintArtifacts: true,
 // projectName: 'Pull_Request_Artifact_Builder',selector: lastWithArtifacts(), target: '.'
                  }
-                }
+                
                 failure {
                  echo "Failure"
                 }
@@ -44,5 +44,5 @@ pipeline {
           }
         }
     }
-
+}
 
